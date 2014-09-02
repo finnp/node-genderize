@@ -21,3 +21,24 @@ genderize.list(['Julia', 'Finn', 'Christian'], function (err, obj) {
   console.log(obj)
 })
 ```
+
+## CLI
+
+You can also do `npm install genderize -g` and you will get a simple streaming interface for piping
+in names and getting beck new line delimited JSON objects.
+
+Given names.txt
+```
+Julia
+Florian
+Finn
+```
+
+This command will result:
+
+```sh
+$ genderize < names.txt
+{"name":"Finn","gender":"male","probability":"1.00","count":29}
+{"name":"Florian","gender":"male","probability":"1.00","count":205}
+{"name":"Julia","gender":"female","probability":"1.00","count":913}
+```
