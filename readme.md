@@ -29,7 +29,7 @@ in names and getting beck new line delimited JSON objects.
 
 Given names.txt
 ```
-Julia
+"Julia"
 Florian
 Finn
 ```

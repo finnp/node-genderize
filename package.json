@@ -25,6 +25,7 @@
   "homepage": "https://github.com/finnp/node-genderize",
   "dependencies": {
     "request": "^2.40.0",
-    "split": "^0.3.0"
+    "split": "^0.3.0",
+    "unquote": "^1.0.0"
   }
 }
