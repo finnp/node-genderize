@@ -1,0 +1,26 @@
+{
+  "name": "genderize",
+  "version": "0.0.0",
+  "description": "Guess gender of a first name through a HTTP API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finnp/node-genderize"
+  },
+  "keywords": [
+    "gender",
+    "guess"
+  ],
+  "author": "Finn Pauls",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finnp/node-genderize/issues"
+  },
+  "homepage": "https://github.com/finnp/node-genderize",
+  "dependencies": {
+    "request": "^2.40.0"
+  }
+}
