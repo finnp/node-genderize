@@ -14,3 +14,10 @@ genderize('Julia', function (err, obj) {
   console.log(obj.gender) // outputs 'female'
 }
 ```
+
+### List
+```js
+genderize.list(['Julia', 'Finn', 'Christian'], function (err, obj) {
+  console.log(obj)
+})
+```
