@@ -1,6 +1,6 @@
 {
   "name": "genderize",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Guess gender of a first name through a HTTP API",
   "main": "index.js",
   "bin": {
