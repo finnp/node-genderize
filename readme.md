@@ -34,7 +34,7 @@ Florian
 Finn
 ```
 
-This command will result:
+This command could result. Note that it doesn't have to be in the correct order.
 
 ```sh
 $ genderize < names.txt
