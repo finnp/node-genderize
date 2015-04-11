@@ -7,7 +7,7 @@
     "genderize": "./cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node example.js && ./cli.js < example-names.txt"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,11 @@
   },
   "homepage": "https://github.com/finnp/node-genderize",
   "dependencies": {
+    "minimist": "^1.1.1",
+    "ndjson": "^1.3.0",
     "request": "^2.40.0",
     "split": "^0.3.0",
+    "through2": "^0.6.5",
     "unquote": "^1.0.0"
   }
 }

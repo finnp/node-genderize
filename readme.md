@@ -20,6 +20,14 @@ genderize('Andrea', {language_id: 'it'}, function (err, obj) {
 }
 ```
 
+### Stream
+```js
+objectStream
+  .pipe(genderize({language_id: 'it'}))
+  .pipe(ndjson.stringify())
+  .pipe(process.out)
+```
+
 ### List
 ```js
 genderize.list(['Julia', 'Finn', 'Christian', 'Andrea'], function (err, obj) {

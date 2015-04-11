@@ -1,5 +1,6 @@
 var stringify = require('querystring').stringify
 var request = require('request')
+var through = require('through2')
 
 function genderize(firstname, options, cb) {
   var qs = stringify({name: firstname})
@@ -13,6 +14,14 @@ function genderize(firstname, options, cb) {
   request('http://api.genderize.io?' + qs, function (err, res, body) {
     if(err) cb(err)
     cb(null, JSON.parse(body))
+  })
+}
+
+genderize.stream = function(options) {
+  options = options || {}
+  return through.obj(function (chunk, enc, cb) {
+    if(Buffer.isBuffer(chunk)) chunk = chunk.toString()
+    genderize(chunk, options, cb)
   })
 }
 

@@ -2,20 +2,18 @@
 
 var split = require('split')
 var unquote = require('unquote')
+var minimist = require('minimist')
+var ndjson = require('ndjson')
+var through = require('through2')
 var genderize = require('./')
-var args = process.argv.slice(2)
+
+var args = minimist(process.argv.slice(2))
 
 process.stdin
   .pipe(split())
-  .on('data', function (name) {
-    var options = args.reduce(function (acc, current, index) {
-      var parts = current.split('=')
-      acc[parts[0]] = parts[1]
-      return acc
-    }, {})
-
-    genderize(unquote(name), options, function (err, data) {
-      if(err) return console.error(err)
-      console.log(JSON.stringify(data))
-    })
-  })
+  .pipe(through(function (name, enc, cb) {
+    cb(null, unquote(name.toString()))
+  }))
+  .pipe(genderize.stream(args))
+  .pipe(ndjson.stringify())
+  .pipe(process.stdout)
