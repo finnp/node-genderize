@@ -61,7 +61,7 @@ $ genderize < names.txt
 {"name":"Finn","gender":"male","probability":"0.99","count":81}
 {"name":"Andrea","gender":"female","probability":"0.79","count":5623}
 
-$ genderize language_id=it < names.txt
+$ genderize --language_id it < names.txt
 {"name":"Julia","gender":"female","probability":"1.00","count":7,"language_id":"it"}
 {"name":"Florian","gender":"male","probability":"1.00","count":4,"language_id":"it"}
 {"name":"Finn","gender":null,"language_id":"it"}
