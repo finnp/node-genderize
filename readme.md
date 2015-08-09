@@ -12,12 +12,12 @@ var genderize = require('genderize')
 
 genderize('Julia', function (err, obj) {
   console.log(obj.gender) // outputs 'female'
-}
+})
 
 // optional localization parameters (see https://genderize.io/#localization)
 genderize('Andrea', {language_id: 'it'}, function (err, obj) {
   console.log(obj.gender) // outputs 'male'
-}
+})
 ```
 
 ### Stream
