@@ -11,7 +11,7 @@ function genderize(firstname, options, cb) {
     qs += '&' + stringify(options)
   }
 
-  request('http://api.genderize.io?' + qs, function (err, res, body) {
+  request('https://api.genderize.io?' + qs, function (err, res, body) {
     if(err) cb(err)
     cb(null, JSON.parse(body))
   })
@@ -39,7 +39,7 @@ genderize.list = function (names, options, cb) {
     qs += '&' + stringify(options)
   }
 
-  request('http://api.genderize.io?' + qs, function (err, res, body) {
+  request('https://api.genderize.io?' + qs, function (err, res, body) {
     if(err) cb(err)
     cb(null, JSON.parse(body))
   })
