@@ -2,7 +2,7 @@ var stringify = require('querystring').stringify
 var request = require('request')
 var through = require('through2')
 
-function genderize(firstname, options, cb) {
+function genderize (firstname, options, cb) {
   var qs = stringify({name: firstname})
 
   if (typeof options === 'function') {
@@ -12,22 +12,27 @@ function genderize(firstname, options, cb) {
   }
 
   request('https://api.genderize.io?' + qs, function (err, res, body) {
-    if(err) cb(err)
-    cb(null, JSON.parse(body))
+    if (err) return cb(err)
+    try {
+      var parsed = JSON.parse(body)
+      cb(null, parsed)
+    } catch (e) {
+      cb(new Error('Could not parse json response from genderize.io'))
+    }
   })
 }
 
-genderize.stream = function(options) {
+genderize.stream = function (options) {
   options = options || {}
   return through.obj(function (chunk, enc, cb) {
-    if(Buffer.isBuffer(chunk)) chunk = chunk.toString()
+    if (Buffer.isBuffer(chunk)) chunk = chunk.toString()
     genderize(chunk, options, cb)
   })
 }
 
 genderize.list = function (names, options, cb) {
   var values = names.reduce(function (acc, current, index) {
-    acc['name[' + index  + ']'] = current
+    acc['name[' + index + ']'] = current
     return acc
   }, {})
 
@@ -40,7 +45,7 @@ genderize.list = function (names, options, cb) {
   }
 
   request('https://api.genderize.io?' + qs, function (err, res, body) {
-    if(err) cb(err)
+    if (err) cb(err)
     cb(null, JSON.parse(body))
   })
 }

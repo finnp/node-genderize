@@ -7,7 +7,7 @@
     "genderize": "./cli.js"
   },
   "scripts": {
-    "test": "node example.js && ./cli.js < example-names.txt"
+    "test": "standard && node example.js && ./cli.js < example-names.txt"
   },
   "repository": {
     "type": "git",
